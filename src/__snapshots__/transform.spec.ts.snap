@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transform should add a transform 1`] = `
+"import React from 'react';
+import { useWorkspacesQuery } from '../../../graphql/gqlPrivateSchema';
+import Loader from '../../common/page/loader/Loader';
+import { PageContentWrapper } from '../../common/page/Page';
+import './YourWorkspaces.less';
+export const YourWorkspaces = () => {
+  const {
+    data,
+    loading
+  } = useWorkspacesQuery();
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (!data || (data === null || data === void 0 ? void 0 : data.workspaces.length) === 0) {
+    return null;
+  }
+
+  return <PageContentWrapper className=\\"YourWorkspaces\\">
+      <div className=\\"grid-header\\">
+        <h3>Your workspaces {a}</h3>
+      </div>
+
+      <div>
+        Read the <a href=\\"https://lingui.js.org\\">documentation</a>
+        for more info.
+      </div>
+    </PageContentWrapper>;
+};"
+`;
