@@ -1,8 +1,9 @@
 {
   "name": "lingui-jsx-trans-gen",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "add Trans to your JSX files automagically",
   "main": "index.js",
+  "bin": "bin/lingui-jsx-trans-gen.js",
   "scripts": {
     "test": "jest",
     "d": "jest --watch"
@@ -15,8 +16,9 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
+    "@babel/types": "^7.7.4",
     "@types/jest": "^24.0.25",
-    "@types/node": "^13.1.2",
+    "@types/node": "^13.1.4",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",

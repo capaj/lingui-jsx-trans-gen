@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`transform should add a transform 1`] = `
+exports[`transform should add a Trans macro around translatable text 1`] = `
 "import React from 'react';
 import { useWorkspacesQuery } from '../../../graphql/gqlPrivateSchema';
 import Loader from '../../common/page/loader/Loader';
@@ -22,13 +22,13 @@ export const YourWorkspaces = () => {
 
   return <PageContentWrapper className=\\"YourWorkspaces\\">
       <div className=\\"grid-header\\">
-        <h3>Your workspaces {a}</h3>
+        <Trans><h3>Your workspaces {a}</h3></Trans>
       </div>
 
-      <div>
+      <Trans><div>
         Read the <a href=\\"https://lingui.js.org\\">documentation</a>
         for more info.
-      </div>
+      </div></Trans>
     </PageContentWrapper>;
 };"
 `;
