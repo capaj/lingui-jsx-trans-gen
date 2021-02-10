@@ -7,17 +7,12 @@ export interface Babel {
 }
 
 export function linguiMacroGeneratorBabelPlugin(
-  babel: Babel
+  babel
 ): { visitor: Visitor<PluginOptions> } {
   const t = babel.types
-  //   let addImport = false
-
   const traverser = {
     name: 'lingui-jsx-gen',
     visitor: {
-      Program(_path, _opts) {
-        // code = opts.file.code
-      },
       JSXElement(path, _opts) {
         if (path.node.children.length > 0) {
           const hasTranslatableTextChild = path.node.children.find((node) => {
@@ -35,8 +30,32 @@ export function linguiMacroGeneratorBabelPlugin(
             path.skip()
           }
         }
-      }
+      },
+    },
+  }
+  return traverser
+}
+
+export function linguiAddImport(babel): { visitor: Visitor<PluginOptions> } {
+  const linguiImport = babel.template(
+    `import { Trans } from '@lingui/macro'\n`,
+    {
+      sourceType: 'module',
     }
+  )
+
+  const traverser = {
+    name: 'lingui-jsx-gen',
+    visitor: {
+      Program(path) {
+        const lastImport = path
+          .get('body')
+          .filter((p) => p.isImportDeclaration())
+          .pop()
+
+        if (lastImport) lastImport.insertAfter(linguiImport())
+      },
+    },
   }
   return traverser
 }

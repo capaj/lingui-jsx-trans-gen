@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "add Trans to your JSX files automagically",
   "main": "index.js",
-  "bin": "bin/lingui-jsx-trans-gen.js",
+  "bin": "dist/bin/lingui-jsx-trans-gen.js",
   "scripts": {
     "test": "jest",
-    "d": "jest --watch"
+    "prepare": "tsc",
+    "w": "jest --watch"
   },
   "keywords": [
     "lingui",
@@ -15,17 +16,19 @@
   "author": "capajj@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
-    "@babel/types": "^7.7.4",
-    "@types/jest": "^24.0.25",
-    "@types/node": "^13.1.4",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1",
-    "pretty-quick": "^2.0.1",
-    "ts-jest": "^24.2.0",
-    "ts-node-dev": "^1.0.0-pre.44",
-    "typescript": "^3.7.4"
+    "@babel/plugin-proposal-optional-chaining": "^7.12.13",
+    "@babel/types": "^7.12.13",
+    "@types/fs-extra": "^9.0.6",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.25",
+    "@types/yargs": "^16.0.0",
+    "husky": "^5.0.9",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "ts-jest": "^26.5.1",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.4"
   },
   "husky": {
     "hooks": {
@@ -33,7 +36,10 @@
     }
   },
   "dependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-typescript": "^7.7.7"
+    "@babel/core": "^7.12.13",
+    "@babel/preset-typescript": "^7.12.13",
+    "fs-extra": "^9.1.0",
+    "globby": "^11.0.2",
+    "yargs": "^16.2.0"
   }
 }

@@ -27,11 +27,13 @@
     "preserveConstEnums": true,
     "skipLibCheck": true
   },
+  "include": ["src"],
   "exclude": [
     ".git",
-    "**/*.spec.js",
+    "*.js",
     "**/node_modules/**",
     "**/dist/**",
+    "**/test-files/**",
     "**/build/**",
     "./node_modules/*"
   ]

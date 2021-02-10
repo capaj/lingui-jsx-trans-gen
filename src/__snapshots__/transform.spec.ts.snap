@@ -4,6 +4,43 @@ exports[`transform should add a Trans macro around translatable text 1`] = `
 "import React from 'react';
 import { useWorkspacesQuery } from '../../../graphql/gqlPrivateSchema';
 import Loader from '../../common/page/loader/Loader';
+import { PageContentWrapper } from '../../common/page/Page'; // import WorkspaceCard from '../../../pages/dashboard-page/workspace-card/WorkspaceCard'
+// import CardGrid from '../../common/card-grid/CardGrid'
+
+import './YourWorkspaces.less';
+import { Trans } from '@lingui/macro';
+export const YourWorkspaces = () => {
+  const {
+    data,
+    loading
+  } = useWorkspacesQuery();
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (!data || (data === null || data === void 0 ? void 0 : data.workspaces.length) === 0) {
+    return null;
+  }
+
+  const a = 2;
+  return <PageContentWrapper className=\\"YourWorkspaces\\">
+      <div className=\\"grid-header\\">
+        <Trans><h3>Your workspaces {a}</h3></Trans>
+      </div>
+
+      <Trans><div>
+        Read the <a href=\\"https://lingui.js.org\\">documentation</a>
+        for more info.
+      </div></Trans>
+    </PageContentWrapper>;
+};"
+`;
+
+exports[`transform should not add anything 1`] = `
+"import React from 'react';
+import { useWorkspacesQuery } from '../../../graphql/gqlPrivateSchema';
+import Loader from '../../common/page/loader/Loader';
 import { PageContentWrapper } from '../../common/page/Page';
 import './YourWorkspaces.less';
 export const YourWorkspaces = () => {
@@ -21,14 +58,7 @@ export const YourWorkspaces = () => {
   }
 
   return <PageContentWrapper className=\\"YourWorkspaces\\">
-      <div className=\\"grid-header\\">
-        <Trans><h3>Your workspaces {a}</h3></Trans>
-      </div>
-
-      <Trans><div>
-        Read the <a href=\\"https://lingui.js.org\\">documentation</a>
-        for more info.
-      </div></Trans>
+      <div className=\\"grid-header\\"></div>
     </PageContentWrapper>;
 };"
 `;

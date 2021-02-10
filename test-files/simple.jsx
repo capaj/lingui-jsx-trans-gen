@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { useWorkspacesQuery } from '../../../graphql/gqlPrivateSchema'
 import Loader from '../../common/page/loader/Loader'
 import { PageContentWrapper } from '../../common/page/Page'
@@ -6,7 +6,7 @@ import { PageContentWrapper } from '../../common/page/Page'
 // import CardGrid from '../../common/card-grid/CardGrid'
 import './YourWorkspaces.less'
 
-export const YourWorkspaces: FC = () => {
+export const YourWorkspaces = () => {
   const { data, loading } = useWorkspacesQuery()
 
   if (loading) {

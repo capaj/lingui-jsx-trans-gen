@@ -1,13 +1,22 @@
 import { transformSync } from '@babel/core'
-import { linguiMacroGeneratorBabelPlugin } from './babelPlugin'
+import { linguiMacroGeneratorBabelPlugin, linguiAddImport } from './babelPlugin'
 
-export const transform = (code: string, configOverloads) => {
-  return transformSync(code, {
+export const transformAddTrans = (code: string, configOverloads) => {
+  code = transformSync(code, {
     presets: ['@babel/preset-typescript'],
     plugins: [
       '@babel/plugin-proposal-optional-chaining',
-      linguiMacroGeneratorBabelPlugin
+      linguiMacroGeneratorBabelPlugin,
     ],
-    ...configOverloads
-  })?.code
+    ...configOverloads,
+  })?.code as string
+
+  if (code.includes('</Trans>')) {
+    code = transformSync(code, {
+      presets: ['@babel/preset-typescript'],
+      plugins: ['@babel/plugin-proposal-optional-chaining', linguiAddImport],
+      ...configOverloads,
+    })?.code as string
+  }
+  return code
 }
