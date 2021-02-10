@@ -23,4 +23,15 @@ describe('transform', () => {
       })
     ).toMatchSnapshot()
   })
+
+  it('should just add one', async () => {
+    const simple = fs.readFileSync('./test-files/sample2.tsx', {
+      encoding: 'utf8',
+    })
+    expect(
+      transformAddTrans(simple, {
+        filename: 'sample2.tsx',
+      })
+    ).toMatchSnapshot()
+  })
 })

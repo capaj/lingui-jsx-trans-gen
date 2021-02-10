@@ -1,6 +1,6 @@
 {
   "name": "lingui-jsx-trans-gen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "add Trans to your JSX files automagically",
   "main": "index.js",
   "bin": "dist/bin/lingui-jsx-trans-gen.js",
@@ -16,7 +16,6 @@
   "author": "capajj@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.12.13",
     "@babel/types": "^7.12.13",
     "@types/fs-extra": "^9.0.6",
     "@types/jest": "^26.0.20",
@@ -37,7 +36,6 @@
   },
   "dependencies": {
     "@babel/core": "^7.12.13",
-    "@babel/preset-typescript": "^7.12.13",
     "fs-extra": "^9.1.0",
     "globby": "^11.0.2",
     "yargs": "^16.2.0"
