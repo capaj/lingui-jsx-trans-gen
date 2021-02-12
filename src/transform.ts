@@ -7,6 +7,7 @@ export const transformAddTrans = (code: string, configOverloads) => {
       plugins: ['jsx', 'typescript'],
     },
     plugins: [linguiMacroGeneratorBabelPlugin],
+    babelrc: false,
     ...configOverloads,
   })?.code as string
 
@@ -16,6 +17,7 @@ export const transformAddTrans = (code: string, configOverloads) => {
         plugins: ['jsx', 'typescript'],
       },
       plugins: [linguiAddImport],
+      babelrc: false,
       ...configOverloads,
     })?.code as string
   }

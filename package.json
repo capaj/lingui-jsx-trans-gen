@@ -1,6 +1,6 @@
 {
   "name": "lingui-jsx-trans-gen",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "add Trans to your JSX files automagically",
   "main": "index.js",
   "bin": "dist/bin/lingui-jsx-trans-gen.js",
