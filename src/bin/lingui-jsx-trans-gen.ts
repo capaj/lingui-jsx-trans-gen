@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {globby} from 'globby'
+import globby from 'globby'
 
 import yargs from 'yargs'
 import fs from 'fs-extra'
@@ -8,7 +8,6 @@ import fsPath from 'path'
 
 import { hideBin } from 'yargs/helpers'
 import { transformAddTrans } from '../transform'
-
 yargs(hideBin(process.argv))
   .command(
     'dry <glob>',
