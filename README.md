@@ -13,7 +13,7 @@ Just define a custom command like this:
 
 ```json
 {
-  "command": "lingui-jsx-trans-gen addTrans {resource}",
+  "command": "npx lingui-jsx-trans-gen addTrans {resource}",
   "name": "lingui-jsx-trans-gen",
   "auto": true
 }

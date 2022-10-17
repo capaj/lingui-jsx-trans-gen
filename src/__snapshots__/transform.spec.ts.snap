@@ -4,9 +4,9 @@ exports[`transform should add a Trans macro around translatable text 1`] = `
 "import React, { FC } from 'react';
 import { useWorkspacesQuery } from '../../../graphql/gqlPrivateSchema';
 import Loader from '../../common/page/loader/Loader';
-import { PageContentWrapper } from '../../common/page/Page'; // import WorkspaceCard from '../../../pages/dashboard-page/workspace-card/WorkspaceCard'
+import { PageContentWrapper } from '../../common/page/Page';
+// import WorkspaceCard from '../../../pages/dashboard-page/workspace-card/WorkspaceCard'
 // import CardGrid from '../../common/card-grid/CardGrid'
-
 import './YourWorkspaces.less';
 import { Trans } from '@lingui/macro';
 export const YourWorkspaces: FC = () => {
@@ -14,23 +14,20 @@ export const YourWorkspaces: FC = () => {
     data,
     loading
   } = useWorkspacesQuery();
-
   if (loading) {
     return <Loader />;
   }
-
   if (!data || data?.workspaces.length === 0) {
     return null;
   }
-
   const a = 2;
-  return <PageContentWrapper className=\\"YourWorkspaces\\">
-      <div className=\\"grid-header\\">
+  return <PageContentWrapper className="YourWorkspaces">
+      <div className="grid-header">
         <Trans><h3>Your workspaces {a}</h3></Trans>
       </div>
 
       <Trans><div>
-        Read the <a href=\\"https://lingui.js.org\\">documentation</a>
+        Read the <a href="https://lingui.js.org">documentation</a>
         for more info.
       </div></Trans>
     </PageContentWrapper>;
@@ -50,21 +47,17 @@ export const RecentlyViewedTopics: FC = () => {
       limit: limit ?? 6
     }
   });
-
   if (!data) {
     return <Loader />;
   }
-
   const {
     recentlyUpdatedTopicEnrolments
   } = data?.me;
-
   if (recentlyUpdatedTopicEnrolments?.length === 0) {
     return null;
   }
-
-  return <PageContentWrapper className=\\"RecentlyViewed\\">
-      <div className=\\"grid-header\\">
+  return <PageContentWrapper className="RecentlyViewed">
+      <div className="grid-header">
         <Trans><h3>Recently viewed</h3></Trans>
       </div>
 
@@ -74,7 +67,6 @@ export const RecentlyViewedTopics: FC = () => {
       } = enrolment;
       let image: string | null | undefined = null;
       let imageVariants;
-
       if (topicVersion && topicVersion.backgroundImage) {
         const {
           backgroundImage
@@ -83,8 +75,8 @@ export const RecentlyViewedTopics: FC = () => {
         const resizedImage = backgroundImage.imageVariants.find(imageVariant => imageVariant.size_key === '300x200');
         image = resizedImage ? resizedImage.cdnUrl : backgroundImage.cdnUrl;
       }
-
-      return <ResourceCard key={idx} image={image} imageSrcSet={resourceCardCoverImageSrcSet(imageVariants)} // @ts-expect-error
+      return <ResourceCard key={idx} image={image} imageSrcSet={resourceCardCoverImageSrcSet(imageVariants)}
+      // @ts-expect-error
       enrolment={enrolment} topicId={enrolment.topic.id} title={enrolment.topicVersion?.title} description={enrolment.topicVersion?.summary} author={enrolment.topic.author} readDurationMins={enrolment.topicVersion?.readDurationMins} />;
     })} />
     </PageContentWrapper>;
@@ -102,17 +94,14 @@ export const YourWorkspaces: FC = () => {
     data,
     loading
   } = useWorkspacesQuery();
-
   if (loading) {
     return <Loader />;
   }
-
   if (!data || data?.workspaces.length === 0) {
     return null;
   }
-
-  return <PageContentWrapper className=\\"YourWorkspaces\\">
-      <div className=\\"grid-header\\"></div>
+  return <PageContentWrapper className="YourWorkspaces">
+      <div className="grid-header"></div>
     </PageContentWrapper>;
 };"
 `;

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import globby from 'globby'
+import {globby} from 'globby'
 
 import yargs from 'yargs'
 import fs from 'fs-extra'

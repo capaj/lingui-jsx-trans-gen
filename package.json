@@ -1,6 +1,6 @@
 {
   "name": "lingui-jsx-trans-gen",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "add Trans to your JSX files automagically",
   "main": "index.js",
   "bin": "dist/bin/lingui-jsx-trans-gen.js",
@@ -19,18 +19,18 @@
     "node": ">=12"
   },
   "devDependencies": {
-    "@babel/types": "^7.12.13",
-    "@types/fs-extra": "^9.0.7",
-    "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.26",
-    "@types/yargs": "^16.0.0",
-    "husky": "^5.0.9",
-    "jest": "^26.6.3",
-    "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
-    "ts-jest": "^26.5.1",
-    "ts-node-dev": "^1.1.1",
-    "typescript": "^4.1.5"
+    "@babel/types": "^7.19.4",
+    "@types/fs-extra": "^9.0.13",
+    "@types/jest": "^29.1.2",
+    "@types/node": "^18.11.0",
+    "@types/yargs": "^17.0.13",
+    "husky": "^8.0.1",
+    "jest": "^29.2.0",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
+    "ts-jest": "^29.0.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.8.4"
   },
   "husky": {
     "hooks": {
@@ -38,9 +38,9 @@
     }
   },
   "dependencies": {
-    "@babel/core": "^7.12.16",
-    "fs-extra": "^9.1.0",
-    "globby": "^11.0.2",
-    "yargs": "^16.2.0"
+    "@babel/core": "^7.19.3",
+    "fs-extra": "^10.1.0",
+    "globby": "^13.1.2",
+    "yargs": "^17.6.0"
   }
 }
