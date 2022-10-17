@@ -23,13 +23,13 @@ export const YourWorkspaces: FC = () => {
   const a = 2;
   return <PageContentWrapper className="YourWorkspaces">
       <div className="grid-header">
-        <Trans><h3>Your workspaces {a}</h3></Trans>
+        <h3><Trans>Your workspaces {a}</Trans></h3>
       </div>
 
-      <Trans><div>
+      <div><Trans>
         Read the <a href="https://lingui.js.org">documentation</a>
         for more info.
-      </div></Trans>
+      </Trans></div>
     </PageContentWrapper>;
 };"
 `;
@@ -58,7 +58,7 @@ export const RecentlyViewedTopics: FC = () => {
   }
   return <PageContentWrapper className="RecentlyViewed">
       <div className="grid-header">
-        <Trans><h3>Recently viewed</h3></Trans>
+        <h3><Trans>Recently viewed</Trans></h3>
       </div>
 
       <CardGrid cards={recentlyUpdatedTopicEnrolments.map((enrolment, idx) => {

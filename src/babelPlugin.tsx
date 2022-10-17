@@ -6,9 +6,9 @@ export interface Babel {
   types: typeof BabelTypes
 }
 
-export function linguiMacroGeneratorBabelPlugin(
-  babel
-): { visitor: Visitor<PluginOptions> } {
+export function linguiMacroGeneratorBabelPlugin(babel: Babel): {
+  visitor: Visitor<PluginOptions>
+} {
   const t = babel.types
   const traverser = {
     name: 'lingui-jsx-gen',
@@ -21,9 +21,15 @@ export function linguiMacroGeneratorBabelPlugin(
           if (hasTranslatableTextChild) {
             path.replaceWith(
               t.jsxElement(
-                t.jsxOpeningElement(t.jsxIdentifier('Trans'), []),
-                t.jsxClosingElement(t.jsxIdentifier('Trans')),
-                [path.node],
+                path.node.openingElement,
+                path.node.closingElement,
+                [
+                  t.jsxElement(
+                    t.jsxOpeningElement(t.jsxIdentifier('Trans'), []),
+                    t.jsxClosingElement(t.jsxIdentifier('Trans')),
+                    path.node.children
+                  ),
+                ],
                 false
               )
             )
