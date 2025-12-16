@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import globby from 'globby'
+import { globby } from 'globby'
 
 import yargs from 'yargs'
 import fs from 'fs-extra'
@@ -8,6 +8,7 @@ import fsPath from 'path'
 
 import { hideBin } from 'yargs/helpers'
 import { transformAddTrans } from '../transform'
+
 yargs(hideBin(process.argv))
   .command(
     'dry <glob>',
@@ -21,10 +22,10 @@ yargs(hideBin(process.argv))
         console.log(
           transformAddTrans(file, {
             filename: fsPath.basename(path),
-          })
+          }),
         )
       }
-    }
+    },
   )
   .command(
     'addTrans <glob>',
@@ -41,6 +42,6 @@ yargs(hideBin(process.argv))
         await fs.writeFile(path, transformed)
         console.log(`✅ ${path}`)
       }
-    }
+    },
   )
   .demandCommand(1).argv
