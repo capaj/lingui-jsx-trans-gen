@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
 
 exports[`transform should add a Trans macro around translatable text 1`] = `
 "import React, { FC } from 'react';
@@ -30,6 +30,29 @@ export const YourWorkspaces: FC = () => {
         Read the <a href="https://lingui.js.org">documentation</a>
         for more info.
       </Trans></div>
+    </PageContentWrapper>;
+};"
+`;
+
+exports[`transform should not add anything 1`] = `
+"import React, { FC } from 'react';
+import { useWorkspacesQuery } from '../../../graphql/gqlPrivateSchema';
+import Loader from '../../common/page/loader/Loader';
+import { PageContentWrapper } from '../../common/page/Page';
+import './YourWorkspaces.less';
+export const YourWorkspaces: FC = () => {
+  const {
+    data,
+    loading
+  } = useWorkspacesQuery();
+  if (loading) {
+    return <Loader />;
+  }
+  if (!data || data?.workspaces.length === 0) {
+    return null;
+  }
+  return <PageContentWrapper className="YourWorkspaces">
+      <div className="grid-header"></div>
     </PageContentWrapper>;
 };"
 `;
@@ -83,25 +106,11 @@ export const RecentlyViewedTopics: FC = () => {
 };"
 `;
 
-exports[`transform should not add anything 1`] = `
-"import React, { FC } from 'react';
-import { useWorkspacesQuery } from '../../../graphql/gqlPrivateSchema';
-import Loader from '../../common/page/loader/Loader';
-import { PageContentWrapper } from '../../common/page/Page';
-import './YourWorkspaces.less';
-export const YourWorkspaces: FC = () => {
-  const {
-    data,
-    loading
-  } = useWorkspacesQuery();
-  if (loading) {
-    return <Loader />;
-  }
-  if (!data || data?.workspaces.length === 0) {
-    return null;
-  }
-  return <PageContentWrapper className="YourWorkspaces">
-      <div className="grid-header"></div>
-    </PageContentWrapper>;
+exports[`transform should not double wrap existing Trans 1`] = `
+"import { Trans } from "@lingui/macro";
+export const Example = () => {
+  return <Button variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+      <Trans>View All Events</Trans>
+    </Button>;
 };"
 `;

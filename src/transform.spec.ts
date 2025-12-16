@@ -1,5 +1,7 @@
-import fs from 'fs'
+import fs from 'node:fs'
 import { transformAddTrans } from './transform'
+
+import { describe, expect, it } from 'bun:test'
 
 describe('transform', () => {
   it('should add a Trans macro around translatable text', async () => {
@@ -31,6 +33,17 @@ describe('transform', () => {
     expect(
       transformAddTrans(simple, {
         filename: 'sample2.tsx',
+      })
+    ).toMatchSnapshot()
+  })
+
+  it('should not double wrap existing Trans', async () => {
+    const simple = fs.readFileSync('./test-files/alreadyTrans.tsx', {
+      encoding: 'utf8',
+    })
+    expect(
+      transformAddTrans(simple, {
+        filename: 'alreadyTrans.tsx',
       })
     ).toMatchSnapshot()
   })
